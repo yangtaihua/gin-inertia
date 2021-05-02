@@ -26,6 +26,9 @@ func Init(rootTemplate *template.Template) *Inertia {
 		RootTemplate: rootTemplate,
 	}
 }
+func (i *Inertia) SetVersionFunc(f func() string) {
+	i.VersionFunc = f
+}
 
 func (i *Inertia) ShareMulti(p P) {
 	if i.shared == nil {
