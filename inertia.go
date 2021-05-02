@@ -26,7 +26,7 @@ func Init(rootTemplate *template.Template) *Inertia {
 		RootTemplate: rootTemplate,
 	}
 }
-func (i *Inertia) SetVersionFunc(f func() string) {
+func SetVersionFunc(i *Inertia, f func() string) {
 	i.VersionFunc = f
 }
 
