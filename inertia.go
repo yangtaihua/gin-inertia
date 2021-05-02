@@ -21,6 +21,12 @@ type Inertia struct {
 	shared      P
 }
 
+func Init(rootTemplate *template.Template) *Inertia {
+	return &Inertia{
+		RootTemplate: rootTemplate,
+	}
+}
+
 func (i *Inertia) ShareMulti(p P) {
 	if i.shared == nil {
 		i.shared = P{}
