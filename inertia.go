@@ -12,12 +12,14 @@ type inertiaCtxKeyType string
 
 const inertiaCtxKey inertiaCtxKeyType = "inertia"
 
+type versionFunc func() string
+
 type Inertia struct {
 	RootTemplate     *template.Template
 	RootTemplateData P
 
 	Version     string
-	VersionFunc func() string
+	VersionFunc versionFunc
 	shared      P
 }
 
@@ -26,7 +28,7 @@ func Init(rootTemplate *template.Template) *Inertia {
 		RootTemplate: rootTemplate,
 	}
 }
-func SetVersionFunc(i *Inertia, f func() string) {
+func (i *Inertia) SetVersionFunc(f versionFunc) {
 	i.VersionFunc = f
 }
 
